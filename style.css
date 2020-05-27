@@ -1,30 +1,100 @@
-body {
+@font-face {
+    font-family: "Digital";
+    src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot");
+    src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff") format("woff"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.svg#Digital-7") format("svg");
+  }
+  body {
     background: #1E555C;
     color: white;
     font-size: 30px;
     text-align: center;
     font-family: 'Righteous';
-}
-body #container {
+  }
+  body #container {
     display: flex;
     height: 100vh;
     justify-content: center;
     align-items: center;
-}
-body #container .main-title{
+  }
+  body #container .main-title {
     font-size: 50px;
     margin-bottom: 20px;
-}
-body #container .btn-level, body #container .length-control {
-    display: inline-block;
-}
-body #container .length-control {
+  }
+  body #container .length-control {
     width: 250px;
-}
-body #container button {
+  }
+  body #container button {
     background: none;
     outline: none;
     border: none;
     color: white;
     cursor: pointer;
+  }
+  body #container .btn-level,
+  body #container .length-control {
+    display: inline-block;
+  }
+  body #container .btn-level .btn-level:nth-child(3),
+  body #container .length-control .btn-level:nth-child(3) {
+    width: 40px;
+  }
+  .fa-arrow-down::before {
+    content: "\f063";
+    
 }
+
+.fa-arrow-up::before {
+  content: "\f063";
+  
+}
+.fa-refresh::before {
+    content: "\f021";
+}
+.fa-2x{
+    font-size: 2rem;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+        font-size: 14px;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+ 
+body #container .timer {
+    border: 7px solid #13353a;
+    margin: 20px auto 10px auto;
+    width: 270px;
+    height: 160px;
+    border-radius: 50px;
+    position: relative;
+  }
+  body #container .timer .timer-wrapper {
+    position: absolute;
+    width: 190px;
+    height: 110px;
+    left: 50%;
+    top: 50%;
+    margin-left: -95px;
+    margin-top: -57px;
+  }
+  body #container .timer #time-left {
+    font-family: digital;
+    font-size: 80px;
+  }
+  body #container .timer .timer-control button:active {
+    color: #13353a;
+  }
+  
+  @media screen and (max-width: 500px) {
+    #container {
+      transform: scale(0.8);
+      -webkit-transform: scale(0.8);
+      -moz-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+      -o-transform: scale(0.8);
+    }
+  }
+  
