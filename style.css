@@ -5,3 +5,9 @@ body {
     text-align: center;
     font-family: 'Righteous';
 }
+body #container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
