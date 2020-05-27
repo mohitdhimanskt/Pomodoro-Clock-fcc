@@ -21,3 +21,10 @@ body #container .btn-level, body #container .length-control {
 body #container .length-control {
     width: 250px;
 }
+body #container button {
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
