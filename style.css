@@ -11,3 +11,7 @@ body #container {
     justify-content: center;
     align-items: center;
 }
+body #container .main-title{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
