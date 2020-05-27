@@ -15,3 +15,9 @@ body #container .main-title{
     font-size: 50px;
     margin-bottom: 20px;
 }
+body #container .btn-level, body #container .length-control {
+    display: inline-block;
+}
+body #container .length-control {
+    width: 250px;
+}
