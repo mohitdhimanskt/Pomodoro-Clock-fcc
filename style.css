@@ -47,6 +47,15 @@
   content: "\f063";
   
 }
+.fa{
+  font-weight: 900;
+}
+.fa-play::before {
+    content: "\f04b";
+}
+.fa-pause::before {
+    content: "\f04b";
+}
 .fa-refresh::before {
     content: "\f021";
 }
