@@ -35,5 +35,18 @@ class TimerLengthControl extends React.Component {
               intervalID: '',
               alarmColor: {color: 'white'}
           }
+          this.setBrkLength =this.setBrkLength.bind(this);
+          this.setSeshLength = this.setSeshLength.bind(this);
+          this.lengthControl = this.lengthControl.bind(this);
+          this.timerControl = this.timerControl.bind(this);
+          this.beginCountDown = this.beginCountDown.bind(this);
+          this.decrementTimer = this.decrementTimer.bind(this);
+          this.phaseControl = this.phaseControl.bind(this);
+          this.warning = this.warning.bind(this);
+          this. buzzer = this.buzzer.bind(this);
+          this.switchTimer = this.switchTimer.bind(this);
+          this.clockify = this.clockify.bind(this);
+          this.reset = this.reset.bind(this);
+
       }
   }
