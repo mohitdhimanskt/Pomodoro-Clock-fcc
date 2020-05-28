@@ -22,3 +22,18 @@ class TimerLengthControl extends React.Component {
       )
     }
   };
+
+  class Timer extends React.Component {
+      constructor(props){
+          super(props);
+          this.state = {
+              brkLength: 5,
+              seshLength: 25,
+              timerState: 'stopped',
+              timerType: 'Session',
+              timer: 1500,
+              intervalID: '',
+              alarmColor: {color: 'white'}
+          }
+      }
+  }
