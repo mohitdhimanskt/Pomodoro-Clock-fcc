@@ -113,5 +113,23 @@ class Timer extends React.Component {
           
       }
   }
+warning(_timer){
+    let warn = _timer < 61 ?
+    this.setState({ alarmColor: {color: '#a50d0d'}}):
+    this.setState({alarmColor: {color: 'white'}});
+    
+}
+buzzer(_timer){
+    if(_timer === 0){
+     this.audioBeep.play();
+       
+    }
+}
+switchTimer(num ,str){
+    this.setState({
+        timer: num,
+        timerType: str,
+        alarmColor: {color: 'white'}});
+}
 
 }
