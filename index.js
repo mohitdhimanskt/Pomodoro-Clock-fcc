@@ -86,5 +86,32 @@ class Timer extends React.Component {
     this.setState({ timerState: 'stopped' }),
     this.state.intervalID && this.state.intervalID.cancel());
 
+  }beginCountDown(){
+      this.setState({
+          intervalID: accurateInterval(()=>{
+              this.decrementTimer();
+              this.phaseControl();
+          }, 1000) });
   }
+  decrementTimer(){
+      this.setState({timer: this.state.timer -1 });
+  }
+  phaseControl (){
+      let timer = this.state.timer;
+      this.warning(timer);
+      this.buzzer(timer);
+      if(timer < 0){
+          this.state.timerType == 'Session' ?(
+              this.state.intervalID && this.state.intervalID.cancel(),
+              this.beginCountDown(),
+              this.switchTimer(this.state.brkLength * 60, "Break")) :(
+              
+                this.state.intervalID && this.state.intervalID.cancel(),
+                this.beginCountDown(),
+                this.switchTimer(this.state.seshLength * 60, 'Session'));
+              
+          
+      }
+  }
+
 }
