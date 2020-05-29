@@ -136,8 +136,66 @@ clockify(){
     let seconds = this.state.timer - minutes * 60;
     seconds = seconds < 10 ? '0' + seconds : seconds;
     minutes = minutes < 10 ? '0' + minutes : minutes;
-    return minutes + ':' + seconds;
+    return minutes + ':' + seconds; 
 }
+ reset(){
+     this.setState({
+         brkLength: 5,
+         seshLength: 25,
+         timerState: 'stopped',
+         timerType: 'Session',
+         timer: 1500,
+         intervalID: '',
+         alarmColor: {color: 'white'} });
 
-
-}
+         this.state.intervalID && this.state.intervalID.cancel();
+         this.audioBeep.pause();
+         this.audioBeep.currentTime = 0;
+ }
+ render(){
+     return (
+        React.createElement("div",null,
+        React.createElement("div",{ className: "main-title"}, "Pomodoro Clock"),
+        React.createElement(TimerLengthControl, {
+          titleID: "break-label", minID: "break-decrement",
+          addID: "break-increment", lengthID: "break-length",
+          title: "Break Length", onClick: this.setBrkLength,
+          length: this.state.brkLength }),
+        React.createElement(TimerLengthControl, {
+          titleID: "session-label", minID: "session-decrement",
+          addID: "session-increment", lengthID: "session-length",
+          title: "Session Length", onClick: this.setSeshLength,
+          length: this.state.seshLength }),
+        React.createElement("div", { className: "timer", style: this.state.alarmColor },
+        React.createElement("div", { className: "timer-wrapper" },
+        React.createElement("div", { id: "timer-label" },
+        this.state.timerType),
+  
+        React.createElement("div", { id: "time-left" },
+        this.clockify()))),
+  
+  
+  
+        React.createElement("div", { className: "timer-control" },
+        React.createElement("button", { id: "start_stop", onClick: this.timerControl },
+        React.createElement("i", { className: "fa fa-play fa-2x" }),
+        React.createElement("i", { className: "fa fa-pause fa-2x" })),
+  
+        React.createElement("button", { id: "reset", onClick: this.reset },
+        React.createElement("i", { className: "fa fa-refresh fa-2x" }))),
+  
+  
+        React.createElement("div", { className: "author" }, " Designed and Coded by ", React.createElement("br", null),
+        React.createElement("a", { target: "_blank", href: "https://goo.gl/6NNLMG" }, "Peter Weinberg")),
+  
+  
+  
+        React.createElement("audio", { id: "beep", preload: "auto",
+          src: "https://goo.gl/65cBl1",
+          ref: audio => {this.audioBeep = audio;} })));
+  
+  
+    }}
+  ;
+  
+  ReactDOM.render(React.createElement(Timer, null), document.getElementById('app'));
